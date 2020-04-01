@@ -93,7 +93,7 @@ $(document).ready(function() {
     } else {
       // Calculate position based on list element
       let offset = $("#row-" + rowNum).offset();
-      $("#edit-form").css("top", offset.top - 25 + "px");
+      $("#edit-form").css("top", offset.top - 80 + "px");
     }
 
     let rowData = [];
