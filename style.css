@@ -1,0 +1,186 @@
+html,
+body {
+  font-size: 14px;
+  min-height: 180px;
+  width: 340px;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Baloo 2", monospace;
+  color: #2f5876;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 400;
+  text-align: left;
+  margin: 0px 0px 0px 25px;
+}
+
+a:link,
+a:visited {
+  color: #2f5876;
+  outline: 0;
+  text-decoration: none;
+}
+
+img {
+  width: 30px;
+}
+
+.modal-header {
+  text-align: center;
+  border-bottom: 0.5px solid #dadada;
+}
+
+.modal-content {
+  padding: 0 22px;
+}
+
+.modal-icons {
+  border-top: 0.5px solid #dadada;
+  height: 50px;
+  width: 100%;
+}
+
+.logo-icon {
+  vertical-align: text-bottom;
+  margin-right: 12px;
+}
+
+.version {
+  font-size: 18px;
+}
+
+.flex-container {
+  display: flex;
+  padding: 10px 22px;
+  margin-left: 25px;
+}
+
+.flex {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  width: 100px;
+}
+
+.flex:hover,
+#settings-icon:hover,
+#close-icon:hover,
+.fa-pencil-square-o:hover {
+  opacity: 0.4;
+}
+
+.flex i,
+form i {
+  font-size: 40px;
+}
+
+#toolbox-icon {
+  vertical-align: middle;
+}
+
+#settings-icon {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 18px;
+  margin: 5px 0px 0px 5px;
+  vertical-align: top;
+}
+
+#close-icon {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 18px;
+  vertical-align: top;
+  float: right;
+}
+
+#settings-icon:hover,
+#close-icon:hover,
+.fa-pencil-square-o:hover,
+#add-item:hover {
+  cursor: pointer;
+}
+
+#form-container {
+  padding: 5px;
+  position: relative;
+}
+
+form input {
+  margin-left: 5px;
+}
+
+form a {
+  color: steelblue !important;
+  text-decoration: underline !important;
+}
+
+#sortable {
+  list-style-type: none;
+  padding: 0;
+  width: 200px;
+  margin-left: 15px;
+}
+
+#sortable:hover {
+  cursor: ns-resize;
+}
+
+#sortable li {
+  margin: 0 3px 3px 3px;
+  border-bottom: 1px solid lightgrey;
+  padding: 0.4em;
+  padding-left: 1em;
+  font-size: 1.1em;
+  height: 18px;
+}
+
+#sortable li:last-child {
+  border-bottom: none;
+}
+
+#sortable li span {
+  position: absolute;
+  margin-left: -1.3em;
+}
+
+.fa-pencil-square-o {
+  float: right;
+}
+
+#edit-form {
+  padding: 5px;
+  position: absolute;
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  left: 8%;
+}
+
+#edit-labels,
+#edit-inputs {
+  display: inline-block;
+}
+
+#edit-labels span,
+#edit-inputs span {
+  display: block;
+}
+
+#save-button {
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+#save-button:hover {
+  cursor: pointer;
+}
+
+#add-item {
+  margin-left: 15px;
+}
+
+#add-item i {
+  margin-right: 5px;
+}
