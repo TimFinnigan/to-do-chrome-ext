@@ -186,8 +186,15 @@ form a {
   margin-right: 5px;
 }
 
+.title {
+  padding-left: 15px;
+}
 .title input {
-  margin-left: 18px;
   height: 20px;
   width: 200px;
+  padding-left: 0px;
+  font-style: italic;
+  font-size: 14px;
+  font-family: "Baloo 2", monospace;
+  color: darkgrey;
 }

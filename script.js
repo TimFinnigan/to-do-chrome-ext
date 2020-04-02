@@ -5,7 +5,6 @@ $(document).ready(function() {
       title: "GitHub",
       url: "https://www.github.com"
     }
-   
   ];
 
   let editForm =
@@ -108,7 +107,8 @@ $(document).ready(function() {
     $("#edit-form form").submit(function(e) {
       e.preventDefault(); // prevent page refresh
 
-      if (validateFields($("#edit-url").val(), $("#edit-icon").val()) === false) return false;
+      if (validateFields($("#edit-url").val(), $("#edit-icon").val()) === false)
+        return false;
 
       let data = defaultData;
 
@@ -182,8 +182,13 @@ $(document).ready(function() {
       editId = editId.split("-");
       rowNum = editId[1];
       let title = $("#row-" + rowNum + " .title").text();
-      $("#row-" + rowNum + " .title").append("<input value='Add item...'>")
-      // $("#row-" + rowNum + " .title").empty();
+      $("#row-" + rowNum + " .title").empty();
+      $("#row-" + rowNum + " .title").append("<input id='edit-item' value=''>");
+      $("#edit-item").val(title);
+      $("#edit-item").focus();
+      $("#edit-item").blur(function() {
+        $("#row-" + rowNum + " .title").text($("#edit-item").val());
+      });
       // showEditForm(editForm, rowNum);
     });
   };
