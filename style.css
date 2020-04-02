@@ -117,10 +117,10 @@ form a {
 }
 
 #sortable {
-  list-style-type: none;
   padding: 0;
   width: 300px;
   margin-left: 15px;
+  margin-top: 0px;
 }
 
 #sortable:hover {

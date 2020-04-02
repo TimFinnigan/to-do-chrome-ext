@@ -162,7 +162,7 @@ $(document).ready(function() {
       let listItem = "<li id='row-" + i + "'>";
 
       // add elements for url and icon values
-      listItem += " <span class='title' >" + data[i].title + "</span> ";
+      listItem += " <span class='title' >&nbsp;&nbsp;" + data[i].title + "</span> ";
       listItem += " <span class='url' hidden>" + data[i].url + "</span> ";
       listItem += " <span class='icon' hidden>" + data[i].icon + "</span> ";
 
