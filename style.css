@@ -131,7 +131,8 @@ form a {
   margin: 0 3px 3px 3px;
   border-bottom: 1px solid lightgrey;
   padding: 0.4em;
-  padding-left: 1em;
+  padding-bottom: 10px;
+  /* padding-left: 1em; */
   font-size: 1.1em;
   height: 18px;
 }
@@ -183,4 +184,10 @@ form a {
 
 #add-item i {
   margin-right: 5px;
+}
+
+.title input {
+  margin-left: 18px;
+  height: 20px;
+  width: 200px;
 }

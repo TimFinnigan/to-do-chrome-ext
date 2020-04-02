@@ -162,7 +162,7 @@ $(document).ready(function() {
       let listItem = "<li id='row-" + i + "'>";
 
       // add elements for url and icon values
-      listItem += " <span class='title' >&nbsp;&nbsp;" + data[i].title + "</span> ";
+      listItem += " <span class='title' >" + data[i].title + "</span> ";
       listItem += " <span class='url' hidden>" + data[i].url + "</span> ";
       listItem += " <span class='icon' hidden>" + data[i].icon + "</span> ";
 
@@ -181,7 +181,10 @@ $(document).ready(function() {
       let editId = e.target.id;
       editId = editId.split("-");
       rowNum = editId[1];
-      showEditForm(editForm, rowNum);
+      let title = $("#row-" + rowNum + " .title").text();
+      $("#row-" + rowNum + " .title").append("<input value='Add item...'>")
+      // $("#row-" + rowNum + " .title").empty();
+      // showEditForm(editForm, rowNum);
     });
   };
 
