@@ -66,7 +66,8 @@ img {
 .flex:hover,
 #settings-icon:hover,
 #close-icon:hover,
-.fa-pencil-square-o:hover {
+.fa-pencil-square-o:hover,
+.fa-save:hover {
   opacity: 0.4;
 }
 
@@ -98,6 +99,7 @@ form i {
 #settings-icon:hover,
 #close-icon:hover,
 .fa-pencil-square-o:hover,
+.fa-save:hover,
 #add-item:hover {
   cursor: pointer;
 }
@@ -197,4 +199,9 @@ form a {
   font-size: 14px;
   font-family: "Baloo 2", monospace;
   color: darkgrey;
+}
+
+.fa-save {
+  float: right;
+  font-size: 18px;
 }

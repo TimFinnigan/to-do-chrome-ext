@@ -181,14 +181,31 @@ $(document).ready(function() {
       let editId = e.target.id;
       editId = editId.split("-");
       rowNum = editId[1];
+
+      $("#item-" + rowNum).removeClass("fa fa-pencil-square-o");
+      $("#item-" + rowNum).addClass("far fa-save");
+
       let title = $("#row-" + rowNum + " .title").text();
+
       $("#row-" + rowNum + " .title").empty();
       $("#row-" + rowNum + " .title").append("<input id='edit-item' value=''>");
+
       $("#edit-item").val(title);
       $("#edit-item").focus();
-      $("#edit-item").blur(function() {
-        $("#row-" + rowNum + " .title").text($("#edit-item").val());
+
+      $("#edit-item").keyup(function() {
+        let value = $("#edit-item").val();
+        $(".fa-save").click(function(e) {
+          $("#row-" + rowNum + " .title").text(value);
+          $("#item-" + rowNum).removeClass("far fa-save");
+          $("#item-" + rowNum).addClass("fa fa-pencil-square-o");
+        });
       });
+
+      // $("#edit-item").blur(function() {
+      //   let newTitle = $("#edit-item").val();
+      //   $("#row-" + rowNum + " .title").text(newTitle);
+      // });
       // showEditForm(editForm, rowNum);
     });
   };
