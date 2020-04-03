@@ -11,9 +11,7 @@ $(document).ready(function() {
     $("#sortable li").each(function(index) {
       let $this = $(this);
       newData.push({
-        title: $this.find("span.title").text(),
-        url: $this.find("span.url").text(),
-        icon: $this.find("span.icon").text()
+        title: $this.find("span.title").text()
       });
     });
 
