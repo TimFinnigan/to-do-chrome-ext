@@ -32,6 +32,7 @@ $(document).ready(function() {
   const populateList = function(data) {
     $("#sortable").empty();
     for (let i = 0; i < data.length; i++) {
+      if (data[i].title === "") continue;
       let listItem = "<li id='row-" + i + "'>";
 
       // add elements for url and icon values
