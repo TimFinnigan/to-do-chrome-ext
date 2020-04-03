@@ -46,6 +46,7 @@ $(document).ready(function() {
           $("#row-" + rowNum + " .title").text(value);
           $("#item-" + rowNum).removeClass("far fa-save");
           $("#item-" + rowNum).addClass("fa fa-pencil-square-o");
+          saveListOrder();
         });
       });
 
