@@ -1,9 +1,7 @@
 $(document).ready(function() {
   let defaultData = [
     {
-      icon: "fa fa-github",
-      title: "GitHub",
-      url: "https://www.github.com"
+      title: "Thing to do",
     }
   ];
 
@@ -14,8 +12,6 @@ $(document).ready(function() {
 
       // add elements for url and icon values
       listItem += " <span class='title' >" + data[i].title + "</span> ";
-      listItem += " <span class='url' hidden>" + data[i].url + "</span> ";
-      listItem += " <span class='icon' hidden>" + data[i].icon + "</span> ";
 
       // Add unique IDs using index values
       let pencilIcon =
@@ -60,16 +56,6 @@ $(document).ready(function() {
     });
   };
 
-  const isValidJSONString = function(str) {
-    try {
-      JSON.parse(str);
-    } catch (e) {
-      alert("Invalid JSON");
-      return false;
-    }
-    return true;
-  };
-
   const saveListOrder = function() {
     let newData = [];
 
@@ -82,11 +68,7 @@ $(document).ready(function() {
       });
     });
 
-    isValidJSONString(JSON.stringify(newData));
-
     localStorage.setItem("userData", JSON.stringify(newData));
-
-    $(".flex-container").remove();
   };
 
   // Begin process of adding data to display
@@ -113,7 +95,8 @@ $(document).ready(function() {
   );
 
   $("#add-item").click(function() {
-    // add new row, put cursor in input
+    // add new row
+    // put cursor in inputs
   });
   
 });
