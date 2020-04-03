@@ -1,6 +1,6 @@
 {
-  "name": "Coder's Toolbox",
-  "description": "A collection of the best resources for coders.",
+  "name": "Simple To Do List",
+  "description": "A simple to do list.",
   "manifest_version": 2,
   "version": "1.0.0",
   "icons": {
