@@ -15,7 +15,7 @@ $(document).ready(function() {
       });
     });
 
-    localStorage.setItem("userData2", JSON.stringify(newData));
+    localStorage.setItem("userData5", JSON.stringify(newData));
   };
 
   const updateListItem = function(rowNum) {
@@ -51,7 +51,9 @@ $(document).ready(function() {
 
       $("#sortable").append(listItem);
 
-      chrome.browserAction.setBadgeText({ text: String(items) });
+      if (chrome.browserAction) {
+        chrome.browserAction.setBadgeText({ text: String(items) });
+      }
     }
 
     $(".fa-pencil-square-o").click(function(e) {
@@ -93,13 +95,13 @@ $(document).ready(function() {
 
   // Begin process of adding data to display
   if (
-    localStorage.getItem("userData2") &&
-    localStorage.getItem("userData2") !== "[]"
+    localStorage.getItem("userData5") &&
+    localStorage.getItem("userData5") !== "[]"
   ) {
-    let data = localStorage.getItem("userData2");
+    let data = localStorage.getItem("userData5");
     populateList(JSON.parse(data));
   } else {
-    localStorage.setItem("userData2", JSON.stringify(defaultData));
+    localStorage.setItem("userData5", JSON.stringify(defaultData));
     populateList(defaultData);
   }
 
@@ -115,8 +117,8 @@ $(document).ready(function() {
     "<span id='add-item'><i class='fa fa-plus'></i>Add new item...</span>"
   );
 
-  $("#add-item").click(function() {
-    let data = localStorage.getItem("userData2");
+  const addNewItem = function() {
+    let data = localStorage.getItem("userData5");
     data = JSON.parse(data);
     if (!data) data = [];
     data.push([]);
@@ -126,5 +128,16 @@ $(document).ready(function() {
       .trigger("click");
     $("#edit-item").val("Enter task here");
     $("#edit-item").select();
+  };
+
+  $("#add-item").click(function() {
+    addNewItem();
   });
+
+  // If enter is pressed then add new item
+  // $(document).on("keypress", function(e) {
+  //   if (e.which == "13") {
+  //     addNewItem();
+  //   }
+  // });
 });
