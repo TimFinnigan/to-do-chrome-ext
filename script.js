@@ -68,15 +68,15 @@ $(document).ready(function() {
       });
     });
 
-    localStorage.setItem("userData", JSON.stringify(newData));
+    localStorage.setItem("userData1", JSON.stringify(newData));
   };
 
   // Begin process of adding data to display
   if (
-    localStorage.getItem("userData") &&
-    localStorage.getItem("userData") !== "[]"
+    localStorage.getItem("userData1") &&
+    localStorage.getItem("userData1") !== "[]"
   ) {
-    let data = localStorage.getItem("userData");
+    let data = localStorage.getItem("userData1");
     populateList(JSON.parse(data));
   } else {
     populateList(defaultData);
