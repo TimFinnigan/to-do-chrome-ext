@@ -15,7 +15,7 @@ $(document).ready(function() {
       });
     });
 
-    localStorage.setItem("userData5", JSON.stringify(newData));
+    localStorage.setItem("userData2", JSON.stringify(newData));
   };
 
   const updateListItem = function(rowNum) {
@@ -95,13 +95,13 @@ $(document).ready(function() {
 
   // Begin process of adding data to display
   if (
-    localStorage.getItem("userData5") &&
-    localStorage.getItem("userData5") !== "[]"
+    localStorage.getItem("userData2") &&
+    localStorage.getItem("userData2") !== "[]"
   ) {
-    let data = localStorage.getItem("userData5");
+    let data = localStorage.getItem("userData2");
     populateList(JSON.parse(data));
   } else {
-    localStorage.setItem("userData5", JSON.stringify(defaultData));
+    localStorage.setItem("userData2", JSON.stringify(defaultData));
     populateList(defaultData);
   }
 
@@ -118,7 +118,7 @@ $(document).ready(function() {
   );
 
   const addNewItem = function() {
-    let data = localStorage.getItem("userData5");
+    let data = localStorage.getItem("userData2");
     data = JSON.parse(data);
     if (!data) data = [];
     data.push([]);
