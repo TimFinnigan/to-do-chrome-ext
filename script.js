@@ -31,8 +31,11 @@ $(document).ready(function() {
 
   const populateList = function(data) {
     $("#sortable").empty();
+    let items = 0;
+
     for (let i = 0; i < data.length; i++) {
       if (data[i].title === "") continue;
+      items++;
       let listItem = "<li id='row-" + i + "'>";
 
       // add elements for url and icon values
@@ -47,6 +50,8 @@ $(document).ready(function() {
       listItem += pencilIcon + "</li>";
 
       $("#sortable").append(listItem);
+
+      chrome.browserAction.setBadgeText({ text: String(items) });
     }
 
     $(".fa-pencil-square-o").click(function(e) {
@@ -62,7 +67,9 @@ $(document).ready(function() {
       let title = $("#row-" + rowNum + " .title").text();
 
       $("#row-" + rowNum + " .title").empty();
-      $("#row-" + rowNum + " .title").append("<input id='edit-item' value='' maxlength='45'>");
+      $("#row-" + rowNum + " .title").append(
+        "<input id='edit-item' value='' maxlength='45'>"
+      );
 
       $("#edit-item").val(title);
       $("#edit-item").focus();
