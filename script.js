@@ -107,7 +107,10 @@ $(document).ready(function() {
   );
 
   $("#add-item").click(function() {
-    // add new row
-    // put cursor in inputs
+    let data = localStorage.getItem("userData1");
+    data = JSON.parse(data);
+    data.push([]);
+    populateList(data);
+    $('.fa-pencil-square-o:last-child').last().trigger('click');
   });
 });
