@@ -62,7 +62,7 @@ $(document).ready(function() {
       let title = $("#row-" + rowNum + " .title").text();
 
       $("#row-" + rowNum + " .title").empty();
-      $("#row-" + rowNum + " .title").append("<input id='edit-item' value='' maxlength='30'>");
+      $("#row-" + rowNum + " .title").append("<input id='edit-item' value='' maxlength='45'>");
 
       $("#edit-item").val(title);
       $("#edit-item").focus();
