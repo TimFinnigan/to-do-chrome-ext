@@ -1,9 +1,24 @@
 $(document).ready(function() {
   let defaultData = [
     {
-      title: "Thing to do",
+      title: "Thing to do"
     }
   ];
+
+  const saveListOrder = function() {
+    let newData = [];
+
+    $("#sortable li").each(function(index) {
+      let $this = $(this);
+      newData.push({
+        title: $this.find("span.title").text(),
+        url: $this.find("span.url").text(),
+        icon: $this.find("span.icon").text()
+      });
+    });
+
+    localStorage.setItem("userData1", JSON.stringify(newData));
+  };
 
   const populateList = function(data) {
     $("#sortable").empty();
@@ -57,21 +72,6 @@ $(document).ready(function() {
     });
   };
 
-  const saveListOrder = function() {
-    let newData = [];
-
-    $("#sortable li").each(function(index) {
-      let $this = $(this);
-      newData.push({
-        title: $this.find("span.title").text(),
-        url: $this.find("span.url").text(),
-        icon: $this.find("span.icon").text()
-      });
-    });
-
-    localStorage.setItem("userData1", JSON.stringify(newData));
-  };
-
   // Begin process of adding data to display
   if (
     localStorage.getItem("userData1") &&
@@ -99,5 +99,4 @@ $(document).ready(function() {
     // add new row
     // put cursor in inputs
   });
-  
 });
