@@ -91,6 +91,7 @@ $(document).ready(function() {
     let data = localStorage.getItem("userData1");
     populateList(JSON.parse(data));
   } else {
+    localStorage.setItem("userData1", JSON.stringify(defaultData));
     populateList(defaultData);
   }
 
@@ -109,8 +110,13 @@ $(document).ready(function() {
   $("#add-item").click(function() {
     let data = localStorage.getItem("userData1");
     data = JSON.parse(data);
+    if (!data) data = [];
     data.push([]);
     populateList(data);
-    $('.fa-pencil-square-o:last-child').last().trigger('click');
+    $(".fa-pencil-square-o:last-child")
+      .last()
+      .trigger("click");
+    $("#edit-item").val("Enter task here");
+    $("#edit-item").select();
   });
 });
