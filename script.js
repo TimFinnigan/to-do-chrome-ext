@@ -65,6 +65,7 @@ $(document).ready(function() {
 
       $("#edit-item").val(title);
       $("#edit-item").focus();
+      $("#edit-item").select();
 
       $(".fa-save").click(function() {
         updateListItem(rowNum);
