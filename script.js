@@ -18,6 +18,17 @@ $(document).ready(function() {
     localStorage.setItem("userData1", JSON.stringify(newData));
   };
 
+  const updateListItem = function(rowNum) {
+    let value = $("#edit-item").val();
+    $("#row-" + rowNum + " .title").text(value);
+    $("#item-" + rowNum).remove();
+    $("#row-" + rowNum).append(
+      "<i id='item-" + rowNum + "' class='fa fa-pencil-square-o'></i>"
+    );
+    saveListOrder();
+    window.location.reload();
+  };
+
   const populateList = function(data) {
     $("#sortable").empty();
     for (let i = 0; i < data.length; i++) {
@@ -42,8 +53,10 @@ $(document).ready(function() {
       editId = editId.split("-");
       rowNum = editId[1];
 
-      $("#item-" + rowNum).removeClass("fa fa-pencil-square-o");
-      $("#item-" + rowNum).addClass("far fa-save");
+      $("#item-" + rowNum).remove();
+      $("#row-" + rowNum).append(
+        "<i id='item-" + rowNum + "' class='far fa-save'></i>"
+      );
 
       let title = $("#row-" + rowNum + " .title").text();
 
@@ -53,20 +66,19 @@ $(document).ready(function() {
       $("#edit-item").val(title);
       $("#edit-item").focus();
 
-      $("#edit-item").keyup(function() {
-        let value = $("#edit-item").val();
-        $(".fa-save").click(function(e) {
-          $("#row-" + rowNum + " .title").text(value);
-          $("#item-" + rowNum).removeClass("far fa-save");
-          $("#item-" + rowNum).addClass("fa fa-pencil-square-o");
-          saveListOrder();
-        });
+      $(".fa-save").click(function() {
+        updateListItem(rowNum);
       });
 
-      // $("#edit-item").blur(function() {
-      //   let newTitle = $("#edit-item").val();
-      //   $("#row-" + rowNum + " .title").text(newTitle);
-      // });
+      $("#edit-item").keypress(function() {
+        if (event.keyCode === 13) {
+          updateListItem(rowNum);
+        }
+      });
+
+      $("#edit-item").blur(function() {
+        updateListItem(rowNum);
+      });
     });
   };
 
