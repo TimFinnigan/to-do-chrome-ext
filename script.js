@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     $("#row-" + rowNum + " .title").empty();
     $("#row-" + rowNum + " .title").append(
-      "<input id='edit-item' value='' maxlength='45'>"
+      "<input spellcheck='false' id='edit-item' value='' maxlength='45'>"
     );
 
     $("#edit-item").val(title);
