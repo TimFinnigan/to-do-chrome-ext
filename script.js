@@ -5,6 +5,42 @@ $(document).ready(function() {
     }
   ];
 
+  const editItem = function(e) {
+    let editId = e.target.id;
+    editId = editId.split("-");
+    rowNum = editId[1];
+
+    $("#item-" + rowNum).remove();
+    $("#row-" + rowNum).append(
+      "<i id='item-" + rowNum + "' class='far fa-save'></i>"
+    );
+
+    let title = $("#row-" + rowNum + " .title").text();
+
+    $("#row-" + rowNum + " .title").empty();
+    $("#row-" + rowNum + " .title").append(
+      "<input id='edit-item' value='' maxlength='45'>"
+    );
+
+    $("#edit-item").val(title);
+    $("#edit-item").focus();
+    $("#edit-item").select();
+
+    $(".fa-save").click(function() {
+      updateListItem(rowNum);
+    });
+
+    $("#edit-item").keypress(function() {
+      if (event.keyCode === 13) {
+        updateListItem(rowNum);
+      }
+    });
+
+    $("#edit-item").blur(function() {
+      updateListItem(rowNum);
+    });
+  };
+
   const saveListOrder = function() {
     let newData = [];
 
@@ -20,13 +56,22 @@ $(document).ready(function() {
 
   const updateListItem = function(rowNum) {
     let value = $("#edit-item").val();
-    $("#row-" + rowNum + " .title").text(value);
-    $("#item-" + rowNum).remove();
-    $("#row-" + rowNum).append(
-      "<i id='item-" + rowNum + "' class='fa fa-pencil-square-o'></i>"
-    );
-    saveListOrder();
-    window.location.reload();
+    console.log(value.length);
+    if (value.length === 0) {
+      $("#item-" + rowNum).remove();
+      saveListOrder();
+    } else {
+      $("#row-" + rowNum + " .title").text(value);
+      $("#item-" + rowNum).remove();
+      $("#row-" + rowNum).append(
+        "<i id='item-" + rowNum + "' class='fa fa-pencil-square-o'></i>"
+      );
+      saveListOrder();
+      $(".fa-pencil-square-o").click(function(e) {
+        editItem(e);
+      });
+    }
+    
   };
 
   const populateList = function(data) {
@@ -57,39 +102,7 @@ $(document).ready(function() {
     }
 
     $(".fa-pencil-square-o").click(function(e) {
-      let editId = e.target.id;
-      editId = editId.split("-");
-      rowNum = editId[1];
-
-      $("#item-" + rowNum).remove();
-      $("#row-" + rowNum).append(
-        "<i id='item-" + rowNum + "' class='far fa-save'></i>"
-      );
-
-      let title = $("#row-" + rowNum + " .title").text();
-
-      $("#row-" + rowNum + " .title").empty();
-      $("#row-" + rowNum + " .title").append(
-        "<input id='edit-item' value='' maxlength='45'>"
-      );
-
-      $("#edit-item").val(title);
-      $("#edit-item").focus();
-      $("#edit-item").select();
-
-      $(".fa-save").click(function() {
-        updateListItem(rowNum);
-      });
-
-      $("#edit-item").keypress(function() {
-        if (event.keyCode === 13) {
-          updateListItem(rowNum);
-        }
-      });
-
-      $("#edit-item").blur(function() {
-        updateListItem(rowNum);
-      });
+      editItem(e);
     });
   };
 
